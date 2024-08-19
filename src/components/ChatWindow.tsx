@@ -1,15 +1,9 @@
 'use client';
 
 import { useAuth } from '@/firebase/authProvider';
-import { auth, firestore } from '@/firebase/firebase';
-import {
-  addDoc,
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-} from 'firebase/firestore'; // Added `orderBy`
+import { auth, colRef } from '@/firebase/firebase';
+import { addDoc, getDocs, query, where, orderBy } from 'firebase/firestore'; // Added `orderBy`
+
 import { useState, useEffect, useRef } from 'react';
 
 export default function ChatWindow() {
@@ -29,11 +23,12 @@ export default function ChatWindow() {
   useEffect(() => {
     const fetchMessages = async () => {
       const user = auth.currentUser;
+      console.log(user);
 
       if (user) {
         const userId = user.uid;
         const q = query(
-          collection(firestore, 'chats'),
+          colRef,
           where('userId', '==', userId),
           orderBy('timestamp') // Added `orderBy` to ensure messages are fetched in chronological order
         );
@@ -114,11 +109,11 @@ export default function ChatWindow() {
         setLoadingResponse(false);
 
         // Save both user and assistant messages to Firestore, with timestamps
-        await addDoc(collection(firestore, 'chats'), {
+        await addDoc(colRef, {
           userId: user.uid,
           ...newUserMessage, // Save user message with timestamp
         });
-        await addDoc(collection(firestore, 'chats'), {
+        await addDoc(colRef, {
           userId: user.uid,
           ...newAssistantMessage, // Save assistant message with timestamp
         });
