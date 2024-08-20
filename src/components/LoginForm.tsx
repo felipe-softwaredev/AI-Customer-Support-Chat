@@ -17,7 +17,11 @@ export default function LoginForm() {
       await login(email, password);
       router.push('/'); //Redirect to home page upon successful login
     } catch (err: any) {
-      setError(err.message);
+      if (err.message.includes('auth/invalid-credential')) {
+        setError('Wrong email/password');
+      } else {
+        setError(err.message);
+      }
     }
   };
 

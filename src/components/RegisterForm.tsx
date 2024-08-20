@@ -17,7 +17,13 @@ export default function RegisterForm() {
       await register(email, password);
       router.push('/'); //Redirect to home page upon successful registration
     } catch (err: any) {
-      setError(err.message);
+      if (err.message.includes('email-already-in-use')) {
+        setError('Email already registered');
+      } else if (err.message.includes('6 characters')) {
+        setError('Password should be at least 6 characters');
+      } else {
+        setError(err.message);
+      }
     }
   };
 
