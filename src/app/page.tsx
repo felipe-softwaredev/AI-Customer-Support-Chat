@@ -8,8 +8,8 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div className="bg-clip-text bg-gradient-to-r from-white  to-gray-300">
-        <h1 className="font-extrabold text-2xl md:text-4xl text-center mt-2 mb-2 md:mt-3 text- text-gray-800">
+      <div className="bg-white">
+        <h1 className="font-extrabold text-2xl md:text-4xl text-center pt-2 pb-2 md:pt-3  text-gray-800">
           ai chat
         </h1>
       </div>

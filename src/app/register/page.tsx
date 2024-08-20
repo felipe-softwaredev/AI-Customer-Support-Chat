@@ -1,12 +1,11 @@
-"use client";
+'use client';
 
-import RegisterForm from "@/components/RegisterForm";
-
+import RegisterForm from '@/components/RegisterForm';
 
 export default function RegisterPage() {
-    return (
-        <div className="flex items-center justify-center h-screen bg-gray-100">
-            <RegisterForm />
-        </div>
-    )
+  return (
+    <div className="flex-col items-center justify-center h-screen">
+      <RegisterForm />
+    </div>
+  );
 }

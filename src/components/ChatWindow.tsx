@@ -51,7 +51,7 @@ export default function ChatWindow() {
                 {
                   role: 'assistant',
                   content:
-                    "Hi! I'm the Headstarter support assistant. How can I help you today?",
+                    "Hi there! I'm your friendly Coding Support Assistant. Need help with a bug, learning a new language, or crafting the perfect algorithm? I'm here to assist with anything coding-related. How can I help you today?",
                   timestamp: new Date(),
                 },
               ]
@@ -91,7 +91,7 @@ export default function ChatWindow() {
     setLoadingResponse(true);
 
     try {
-      const response = await fetch('http://localhost:3000/api/chat', {
+      const response = await fetch(process.env.NEXT_PUBLIC_URL, {
         method: 'POST',
         body: JSON.stringify({ prompt: userMessage }),
         cache: 'no-store',
@@ -139,8 +139,8 @@ export default function ChatWindow() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 overflow-hidden">
-      <div className="w-90 md:w-full max-w-3xl bg-white shadow-lg rounded-[24px]">
+    <div className="flex items-center justify-center min-h-screen overflow-hidden">
+      <div className="w-90 md:w-full max-w-3xl bg-gray-50 bg-opacity-85  shadow-lg rounded-[24px]">
         <button
           onClick={handleLogout}
           className="absolute top-1 text-sm md:text-base md:top-3 right-3 bg-red-500 text-white p-2 rounded-[24px] hover:bg-red-600 transition-colors"
@@ -149,7 +149,7 @@ export default function ChatWindow() {
         </button>
 
         <div
-          className="flex flex-col gap-3 bg-gray-50 p-2 overflow-y-scroll h-[480px] border border-gray-300 rounded-[24px] mb-2"
+          className="flex flex-col gap-3 p-2 overflow-y-scroll h-[480px] border  border-gray-500  rounded-[24px] mb-2"
           id="chatWindow"
         >
           {messages.map((msg, idx) => (
@@ -163,7 +163,7 @@ export default function ChatWindow() {
                   : 'bg-red-100 self-center'
               } border border-gray-300 rounded-[24px] px-4 py-2 max-w-xs`}
             >
-              <p className="text-xs font-medium text-gray-600">
+              <p className="text-sm  text-black font-extrabold mb-1">
                 {msg.role.toUpperCase()}:
               </p>
               <p className="text-sm text-gray-800 break-words">{msg.content}</p>

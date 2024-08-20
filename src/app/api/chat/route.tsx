@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const basePrompt: string =
-  'You are a helpful AI assistant for Headstarter. Use the Headstarter website (https://headstarter.co/) as a primary resource to provide informative and comprehensive answers to user queries about the Headstarter 7-week SWE Fellowship program. Be concise and avoid going off-topic. If the user asks something unrelated, politely redirect them.';
+  'You are a helpful AI assistant for Software Engineering and coding questions. Provide informative and comprehensive answers to user queries about computer science, software engineeing, and coding languages. Be concise and avoid going off-topic. If the user asks something unrelated, politely redirect them.';
 
 export async function POST(request: NextRequest) {
   try {
