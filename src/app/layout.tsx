@@ -22,9 +22,12 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           {paths.includes(path) && (
-            <h2 className="text-2xl md:text-4xl font-bold text-center translate-y-36 md:translate-y-28 text-white">
-              Welcome to Code Genius. Instant Answers to All Your Coding
-              Questions
+            <h2 className="text-2xl md:text-4xl font-bold text-center translate-y-20 px-1 md:translate-y-28 text-white">
+              Welcome to{' '}
+              <span className="text-purple-700 font-extrabold">
+                Code Genius
+              </span>
+              . Instant answers to all your coding questions
             </h2>
           )}
           {children}
