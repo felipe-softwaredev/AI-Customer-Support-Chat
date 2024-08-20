@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       ></Script>
       <body
         suppressHydrationWarning={true}
-        className="bg-[url('/images/chatbot.jpg')] bg-cover"
+        className="bg-[url('/images/chatbot.avif')] bg-cover bg-no-repeat"
       >
         <AuthProvider>
           {paths.includes(path) && (
