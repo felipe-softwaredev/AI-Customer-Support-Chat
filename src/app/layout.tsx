@@ -24,7 +24,8 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           {paths.includes(path) && (
             <h2 className="text-2xl md:text-4xl font-bold text-center translate-y-36 md:translate-y-28 text-white">
-              Welcome to the AI Customer Support Assistant
+              Welcome to Code Genius. Instant Answers to All Your Coding
+              Questions
             </h2>
           )}
           {children}
