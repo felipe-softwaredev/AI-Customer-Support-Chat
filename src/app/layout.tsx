@@ -10,7 +10,6 @@ export default function RootLayout({ children }) {
 
   const paths = ['/login', '/register'];
 
-  console.log(path);
   return (
     <html lang="en">
       <Script
